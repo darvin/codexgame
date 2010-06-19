@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<style>
+
+.main					{ position:relative; margin:50px auto; border:solid 1px black; overflow:hidden }
+
+.main .over				{ position:absolute; width:100%; height:100%; top:0; left:0; z-index:200;
+							background:url(/media/img/over.png) no-repeat }
+.main .barriers			{ position:absolute; width:100%; height:100%; top:0; left:0; z-index:100; }
+
+.main .t				{ width:64px; height:64px; float:left; background:url(/media/img/tiles-1.png) no-repeat }
+.main .b				{ width:32px; height:32px; float:left }
+.main .b.BD, .main .b.BM { background:url(/media/img/tiles-1.png) no-repeat }
+
+/* ====================================== */
+
+.t.TX	{ background:red }
+.t.T1   { background-position:0 0 }
+.t.T2   { background-position:-64px 0 }
+.t.T3   { background-position:-128px 0 }
+.t.T4   { background-position:-192px 0 }
+.t.T5   { background-position:-256px 0 }
+.t.T6   { background-position:-320px 0 }
+.t.T7   { background-position:-384px 0 }
+.t.T8   { background-position:0 -64px }
+.t.T9   { background-position:-64px -64px }
+.t.T10  { background-position:-128px -64px }
+.t.T11  { background-position:-192px -64px }
+.t.T12  { background-position:-256px -64px }
+.t.T13  { background-position:-320px -64px }
+.t.T14  { background-position:-384px -64px }
+.t.T15  { background-position:0 -128px }
+.t.T16  { background-position:-64px -128px }
+.t.T17  { background-position:-128px -128px }
+.t.T18  { background-position:-192px -128px }
+.t.T19  { background-position:-256px -128px }
+.t.T20  { background-position:-320px -128px }
+.t.T21  { background-position:-384px -128px }
+.t.T22  { background-position:0 -192px }
+.t.T23  { background-position:-64px -192px }
+.t.T24  { background-position:-128px -192px }
+.t.T25  { background-position:-192px -192px }
+.t.T26  { background-position:-256px -192px }
+.t.T27  { background-position:-320px -192px }
+.t.T28  { background-position:-384px -192px }
+.t.T29  { background-position:0 -256px }
+.t.T30  { background-position:-64px -256px }
+.t.T31  { background-position:-128px -256px }
+.t.T32  { background-position:-192px -256px }
+.t.T33  { background-position:-256px -256px }
+.t.T34  { background-position:-320px -256px }
+.t.T35  { background-position:-384px -256px }
+.t.T36  { background-position:0 -320px }
+.t.T37  { background-position:-64px -320px }
+.t.T38  { background-position:-128px -320px }
+.t.T39  { background-position:-192px -320px }
+.t.T40  { background-position:-256px -320px }
+.t.T41  { background-position:-320px -320px }
+.t.T42  { background-position:-384px -320px }
+.t.T43  { background-position:0 -384px }
+.t.T44  { background-position:-64px -384px }
+.t.T45  { background-position:-128px -384px }
+.t.T46  { background-position:-192px -384px }
+.t.T47  { background-position:-256px -384px }
+.t.T48  { background-position:-320px -384px }
+.t.T49  { background-position:-384px -384px }
+
+/* ====================================== */
+
+.b.BD	{ background-position:-384px -64px !important }
+.b.BM	{ background-position:-416px -64px !important }
+
+
+</style>
+
+<div class=main style="width:{{ map.pxWidth }}px; height:{{ map.pxHeight }}px">
+
+{% spaceless %}
+{% for x in map.lDirt %}
+<div class="t T{{ x }}"></div>
+{% endfor %}
+{% endspaceless %}
+
+<div class=over style="background-position: {{ map.randPerc }}% {{ map.randPerc }}%"></div>
+
+<div class=barriers>
+{% spaceless %}
+{% for x in map.lBlock %}
+<div class="b B{{ x }}"></div>
+{% endfor %}
+{% endspaceless %}
+</div>
+
+</div>
